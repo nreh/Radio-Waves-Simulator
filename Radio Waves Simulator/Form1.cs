@@ -7,5 +7,9 @@ namespace Radio_Waves_Simulator {
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e) {
 
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+
+        }
     }
 }
