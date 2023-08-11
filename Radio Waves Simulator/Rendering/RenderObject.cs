@@ -11,6 +11,10 @@ namespace Radio_Waves_Simulator.Rendering {
 
         public Pen stroke = new Pen(Color.White);
 
+        public PointF realPosition(RenderEngineState renderState, PointF position) {
+            return new PointF(position.X - renderState.cameraPosition.X, position.Y - renderState.cameraPosition.Y);
+        }
+
         public PointF realPosition(RenderEngineState renderState) {
             return new PointF(position.X - renderState.cameraPosition.X, position.Y - renderState.cameraPosition.Y);
         }
@@ -21,5 +25,12 @@ namespace Radio_Waves_Simulator.Rendering {
         /// <param name="renderState"></param>
         /// <param name="g"></param>
         public abstract void Draw(RenderEngineState renderState, Graphics g);
+
+        // factory functions
+
+        public RenderObject setStroke(Pen pen) {
+            stroke = pen;
+            return this;
+        }
     }
 }

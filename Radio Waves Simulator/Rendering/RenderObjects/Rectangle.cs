@@ -27,6 +27,13 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
             }
         }
 
+        public Rectangle(float x, float y, float width, float height) {
+            this.position = new PointF(x - width / 2, y - height / 2);
+
+            this.width = width;
+            this.height = height;
+        }
+
         public override void Draw(RenderEngineState renderState, Graphics g) {
             PointF pos = realPosition(renderState);
 
@@ -36,5 +43,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
                 this.width, this.height
             );
         }
+
+        
     }
 }

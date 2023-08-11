@@ -14,5 +14,11 @@ namespace Radio_Waves_Simulator.Rendering {
 
         public PointF cameraPosition = new PointF(0,0);
 
+        // Helper functions
+
+        public void centerCamera(float displayWidth, float displayHeight) {
+            cameraPosition = new PointF(-displayWidth / 2, -displayHeight / 2);
+        }
+
     }
 }
