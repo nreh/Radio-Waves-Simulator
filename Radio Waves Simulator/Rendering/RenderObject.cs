@@ -11,12 +11,14 @@ namespace Radio_Waves_Simulator.Rendering {
 
         public Pen stroke = new Pen(Color.White);
 
-        public PointF realPosition(RenderEngineState renderState, PointF position) {
-            return new PointF(position.X - renderState.cameraPosition.X, position.Y - renderState.cameraPosition.Y);
+        public static PointF realPosition(RenderEngineState renderState, PointF position) {
+            PointF centerOffset = renderState.getCenterOffset();
+            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, position.Y - renderState.cameraPosition.Y + centerOffset.Y);
         }
 
         public PointF realPosition(RenderEngineState renderState) {
-            return new PointF(position.X - renderState.cameraPosition.X, position.Y - renderState.cameraPosition.Y);
+            PointF centerOffset = renderState.getCenterOffset();
+            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, position.Y - renderState.cameraPosition.Y + centerOffset.Y);
         }
 
         /// <summary>

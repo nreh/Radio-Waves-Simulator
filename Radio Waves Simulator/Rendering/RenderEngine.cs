@@ -35,7 +35,7 @@ namespace Radio_Waves_Simulator.Rendering {
         private PictureBox picturebox;
 
         /// <summary>
-        /// Attach drag and zoom listeners to a picturebox
+        /// Attach drag and zoom listeners to a picturebox as well as update renderState.BoundsSize
         /// </summary>
         /// <param name="pictureBox"></param>
         public void attachListeners(PictureBox pictureBox) {
@@ -44,6 +44,9 @@ namespace Radio_Waves_Simulator.Rendering {
             pictureBox.MouseDown += OnDragStart;
             pictureBox.MouseMove += OnDrag;
             pictureBox.MouseUp += OnDragEnd;
+            pictureBox.Resize += onResize;
+
+            renderState.BoundsSize = pictureBox.Size;
         }
 
         private PointF dragStart = new PointF(0,0);
@@ -67,6 +70,12 @@ namespace Radio_Waves_Simulator.Rendering {
 
         private void OnDragEnd(object? sender, MouseEventArgs e) {
             isDragging = false;
+        }
+
+        private void onResize(object? sender, EventArgs e) {
+            // update render state with new size information
+            renderState.BoundsSize = picturebox.Size;
+            picturebox.Refresh();
         }
     }
 }
