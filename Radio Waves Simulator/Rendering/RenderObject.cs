@@ -5,7 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Radio_Waves_Simulator.Rendering {
+    /// <summary>
+    /// Abstract class describing a RenderObject - something that is rendered on the picturebox.
+    /// </summary>
     internal abstract class RenderObject {
+
+        public string name = "Render Object";
 
         public PointF position = new PointF(0,0);
 

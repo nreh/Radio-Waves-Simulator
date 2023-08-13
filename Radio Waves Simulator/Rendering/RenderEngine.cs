@@ -16,7 +16,7 @@ namespace Radio_Waves_Simulator.Rendering {
         /// <summary>
         /// List of objects to render
         /// </summary>
-        private List<RenderObject> renderObjects = new List<RenderObject>();
+        public RenderObjectList renderObjects = new RenderObjectList();
 
         public RenderEngine(RenderSettings _renderSettings) {
             renderSettings = _renderSettings;
@@ -32,7 +32,12 @@ namespace Radio_Waves_Simulator.Rendering {
             renderObjects.Add(obj);
         }
 
-        private PictureBox picturebox;
+        #region Picturebox event handlers
+
+        /// <summary>
+        /// Picturebox that this renderer will work on
+        /// </summary>
+        private PictureBox? picturebox;
 
         /// <summary>
         /// Attach drag and zoom listeners to a picturebox as well as update renderState.BoundsSize
@@ -45,8 +50,13 @@ namespace Radio_Waves_Simulator.Rendering {
             pictureBox.MouseMove += OnDrag;
             pictureBox.MouseUp += OnDragEnd;
             pictureBox.Resize += onResize;
+            picturebox.Paint += onPaint;
 
             renderState.BoundsSize = pictureBox.Size;
+        }
+
+        private void onPaint(object? sender, PaintEventArgs e) {
+            Draw(e.Graphics);
         }
 
         private PointF dragStart = new PointF(0,0);
@@ -64,7 +74,9 @@ namespace Radio_Waves_Simulator.Rendering {
                 renderState.cameraPosition.X = originalCameraPosition.X - (e.X - dragStart.X);
                 renderState.cameraPosition.Y = originalCameraPosition.Y -  (e.Y - dragStart.Y);
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference since we know that picturebox will not be null.
                 picturebox.Refresh();
+#pragma warning restore CS8602
             }
         }
 
@@ -74,8 +86,14 @@ namespace Radio_Waves_Simulator.Rendering {
 
         private void onResize(object? sender, EventArgs e) {
             // update render state with new size information
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference since we know that picturebox will not be null.
             renderState.BoundsSize = picturebox.Size;
+#pragma warning restore CS8602
+
             picturebox.Refresh();
         }
+
+        #endregion
     }
 }
