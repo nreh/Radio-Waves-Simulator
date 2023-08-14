@@ -34,7 +34,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -42,7 +45,12 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -59,7 +67,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1161, 793);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.TabIndex = 0;
@@ -172,15 +180,61 @@
             this.button1.Text = "Simulate";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BackColor = System.Drawing.Color.Black;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.button2);
+            this.splitContainer2.Panel2.Controls.Add(this.trackBar1);
+            this.splitContainer2.Size = new System.Drawing.Size(926, 793);
+            this.splitContainer2.SplitterDistance = 742;
+            this.splitContainer2.TabIndex = 0;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(926, 793);
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.Size = new System.Drawing.Size(926, 742);
+            this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Radio_Waves_Simulator.Properties.Resources.PlayIcon;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(9, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(37, 37);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar1.BackColor = System.Drawing.Color.Black;
+            this.trackBar1.Enabled = false;
+            this.trackBar1.Location = new System.Drawing.Point(48, 3);
+            this.trackBar1.Maximum = 0;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(875, 45);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
             // Form1
             // 
@@ -198,7 +252,13 @@
             this.tabPage1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,7 +266,6 @@
         #endregion
 
         private SplitContainer splitContainer1;
-        private PictureBox pictureBox1;
         private Button button1;
         private TabControl tabControl1;
         private TabPage tabPage1;
@@ -217,5 +276,9 @@
         private ComboBox CurrentFunctionsDropDown;
         private TabPage tabPage2;
         private TabPage tabPage3;
+        private SplitContainer splitContainer2;
+        private PictureBox pictureBox1;
+        private TrackBar trackBar1;
+        private Button button2;
     }
 }
