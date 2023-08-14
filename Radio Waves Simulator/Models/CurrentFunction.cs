@@ -20,7 +20,7 @@ namespace Radio_Waves_Simulator.Models {
         }
 
         public float derivativeAt(float t) {
-            return (float)timeDerivative.Evaluate(new Dictionary<string, object> { ["t"] = t });
+            return Convert.ToSingle(timeDerivative.Evaluate(new Dictionary<string, object> { ["t"] = t }));
         }
 
         /// <summary>

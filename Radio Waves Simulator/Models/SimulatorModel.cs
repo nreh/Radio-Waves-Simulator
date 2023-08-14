@@ -18,6 +18,8 @@ namespace Radio_Waves_Simulator.Simulator {
 
         public SimulationSettings simulationSettings = new SimulationSettings();
 
+        public Models.Simulator? simulator = null;
+
         private Dictionary<string, Lines> antennaShapes;
         /// <summary>
         /// Antenna shapes that can be selected
@@ -189,5 +191,43 @@ namespace Radio_Waves_Simulator.Simulator {
         public void redraw() {
             pictureBox.Refresh();
         }
+
+        public EventHandler onSimulationComplete;
+
+        public void startSimulation() {
+            var w = renderEngine.renderObjects.getObjectByName("antenna");
+            
+            if (w == null) {
+                throw new Exception("Antenna doesn't exist in render engine!");
+            }
+
+            simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
+
+            simulator.simulateFrames(20);
+
+            onSimulationComplete.Invoke(this, new EventArgs());
+        }
+
+        public void drawFrame(int frameIndex) {
+            if (simulator == null) {
+                throw new Exception("No simulation calculated");
+            }
+
+            if (frameIndex >= simulator.allFrames.Count) {
+                throw new Exception("Index out of bounds");
+            }
+
+            // remove last frame if already exists
+            renderEngine.renderObjects.removeRenderObjectByName("frame", quiet: true);
+
+            // add new frame object to renderEngine
+            FrameRenderer fr = new FrameRenderer(simulationSettings.simulationRegion.Width, simulationSettings.simulationRegion.Height, simulator.allFrames[frameIndex]);
+            fr.name = "frame";
+            renderEngine.AddObject(fr, 0);
+            redraw();
+
+            Debug.WriteLine("Showing frame " + frameIndex.ToString());
+        }
+        
     }
 }

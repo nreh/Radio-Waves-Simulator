@@ -24,10 +24,11 @@ namespace Radio_Waves_Simulator.Rendering {
             return null; // object wasn't found
         }
 
-        public void removeRenderObjectByName(string name) {
+        public void removeRenderObjectByName(string name, bool quiet = false) {
             RenderObject? obj = getObjectByName(name);
 
             if (obj == null) {
+                if (quiet) return;
                 throw new KeyNotFoundException("RenderObject with name " + name + " was not found");
             }
 

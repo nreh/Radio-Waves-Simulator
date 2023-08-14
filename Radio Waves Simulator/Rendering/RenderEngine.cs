@@ -32,6 +32,10 @@ namespace Radio_Waves_Simulator.Rendering {
             renderObjects.Add(obj);
         }
 
+        public void AddObject(RenderObject obj, int index) {
+            renderObjects.Insert(index, obj);
+        }
+
         #region Picturebox event handlers
 
         /// <summary>

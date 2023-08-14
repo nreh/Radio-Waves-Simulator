@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Radio_Waves_Simulator.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
             directionalVectors = new PointF[points.Count - 1];
 
             for(int x=1; x<points.Count; x++) {
-                float l = MathF.Sqrt(MathF.Pow(points[x].X - points[x - 1].X, 2) + MathF.Pow(points[x].Y - points[x - 1].Y, 2));
+                float l = PointFUtils.Distance(points[x], points[x-1]);
 
                 cumulativeLengths[x - 1] = l;
                 if (x > 1) {
@@ -46,6 +47,13 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
         /// </summary>
         private float length;
 
+        public float Length {
+            get {
+                return length;
+            }
+            private set { }
+        }
+
         /// <summary>
         /// Unit vectors pointing from one point to the next
         /// </summary>
@@ -53,6 +61,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
 
         /// <summary>
         /// The cummulative line length between each point.
+        /// 
         /// So if there are 4 points A,B,C,D
         /// 
         /// cumulativeLengths[0] would be the line length from AB
@@ -61,7 +70,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
         /// </summary>
         private float[] cumulativeLengths;
 
-        public PointF Position(float p) {
+        public FieldVector Position(float p) {
             // first we find which line segment the point p(t) will lie on
             float l = p * length;
 
@@ -73,7 +82,10 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
                         remainingLength -= cumulativeLengths[x-1];
                     }
 
-                    return new PointF(directionalVectors[x].X * remainingLength, directionalVectors[x].Y * remainingLength);
+                    PointF position = new PointF(directionalVectors[x].X * remainingLength, directionalVectors[x].Y * remainingLength);
+                    PointF direction = directionalVectors[x];
+
+                    return new FieldVector(position, direction);
                 }
             }
 

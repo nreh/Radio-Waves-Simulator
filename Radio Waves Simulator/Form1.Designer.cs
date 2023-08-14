@@ -33,7 +33,7 @@
             this.CurrentFunctionsDropDown = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SimulateButton = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.SimulateButton);
             // 
             // splitContainer1.Panel2
             // 
@@ -168,17 +168,18 @@
             this.tabPage3.Text = "Rendering";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // SimulateButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.SimulateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(15, 758);
-            this.button1.MaximumSize = new System.Drawing.Size(200, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Simulate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SimulateButton.Location = new System.Drawing.Point(15, 758);
+            this.SimulateButton.MaximumSize = new System.Drawing.Size(200, 100);
+            this.SimulateButton.Name = "SimulateButton";
+            this.SimulateButton.Size = new System.Drawing.Size(200, 23);
+            this.SimulateButton.TabIndex = 1;
+            this.SimulateButton.Text = "Simulate";
+            this.SimulateButton.UseVisualStyleBackColor = true;
+            this.SimulateButton.Click += new System.EventHandler(this.SimulateButton_Click);
             // 
             // splitContainer2
             // 
@@ -235,6 +236,7 @@
             this.trackBar1.Size = new System.Drawing.Size(875, 45);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // Form1
             // 
@@ -266,7 +268,7 @@
         #endregion
 
         private SplitContainer splitContainer1;
-        private Button button1;
+        private Button SimulateButton;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private FlowLayoutPanel flowLayoutPanel1;
