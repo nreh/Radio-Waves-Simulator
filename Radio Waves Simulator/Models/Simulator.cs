@@ -84,7 +84,7 @@ namespace Radio_Waves_Simulator.Models {
             PointF value = new PointF(0, 0);
 
             // Add up all wire contributions
-            for(float p=0; p<=1; p+=simulationSettings.dp) {
+            for(float p=0; p<=1 + 0.01f; p+=simulationSettings.dp) {
                 PointF w = calculateContributionFromWireElement(position, p, t, c);
                 value.X += w.X;
                 value.Y += w.Y;

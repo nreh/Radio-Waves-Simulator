@@ -75,7 +75,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
             float l = p * length;
 
             for (int x = 0; x < cumulativeLengths.Length; x++) {
-                if (l <= cumulativeLengths[x]) {
+                if (l <= cumulativeLengths[x] + 0.01f) {
                     // p(t) lies on line segment points[x],points[x+1]
                     float remainingLength = l;
                     if (x > 0) {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Radio_Waves_Simulator.Models {
     internal class SimulationSettings {
 
-        public Size simulationRegion = new Size(500, 500);
+        public Size simulationRegion = new Size(1000, 1000);
 
         public float dt = 0.2f;
 
