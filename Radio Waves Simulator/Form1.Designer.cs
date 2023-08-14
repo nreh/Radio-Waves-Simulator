@@ -148,6 +148,7 @@
             this.CurrentFunctionsDropDown.Name = "CurrentFunctionsDropDown";
             this.CurrentFunctionsDropDown.Size = new System.Drawing.Size(206, 23);
             this.CurrentFunctionsDropDown.TabIndex = 3;
+            this.CurrentFunctionsDropDown.SelectedIndexChanged += new System.EventHandler(this.CurrentFunctionsDropDown_SelectedIndexChanged);
             // 
             // tabPage2
             // 

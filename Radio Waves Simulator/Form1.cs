@@ -35,6 +35,10 @@ namespace Radio_Waves_Simulator {
             simulatorModel.SelectedAntenna = (string)AntennaShapesDropdown.SelectedItem;
         }
 
+        private void CurrentFunctionsDropDown_SelectedIndexChanged(object sender, EventArgs e) {
+            simulatorModel.SelectedCurrentFunction = (string)CurrentFunctionsDropDown.SelectedItem;
+        }
+
         private void SimulateButton_Click(object sender, EventArgs e) {
             simulatorModel.startSimulation();
         }
@@ -42,5 +46,7 @@ namespace Radio_Waves_Simulator {
         private void trackBar1_Scroll(object sender, EventArgs e) {
             simulatorModel.drawFrame(trackBar1.Value);
         }
+
+        
     }
 }
