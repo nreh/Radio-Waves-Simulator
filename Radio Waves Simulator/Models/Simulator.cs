@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Radio_Waves_Simulator.Models {
     /// <summary>
-    /// Class that actually calculates the radio wave propagation
+    /// Class that does the actual calculation of the radio wave propagation
     /// </summary>
     internal class Simulator {
         SimulationSettings simulationSettings;
@@ -16,7 +16,7 @@ namespace Radio_Waves_Simulator.Models {
             this.simulationSettings = simulationSettings;
         }
 
-        public Frame calculateNextFrame(float dx) {
+        public Frame calculateFrame(float t) {
             throw new NotImplementedException();
         }
     }

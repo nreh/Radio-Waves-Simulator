@@ -50,8 +50,8 @@ namespace Radio_Waves_Simulator.Simulator {
             }
         }
 
-        private Dictionary<string, Expression> currentFunctions;
-        public Dictionary<string, Expression> CurrentFunctions {
+        private Dictionary<string, CurrentFunction> currentFunctions;
+        public Dictionary<string, CurrentFunction> CurrentFunctions {
             get {
                 return currentFunctions;
             }
@@ -110,14 +110,14 @@ namespace Radio_Waves_Simulator.Simulator {
 
             files = Directory.GetFiles("Current Functions/");
 
-            currentFunctions = new Dictionary<string, Expression>();
+            currentFunctions = new Dictionary<string, CurrentFunction>();
 
             foreach (var file in files) {
                 try {
 
                     currentFunctions.Add(
                         Path.GetFileNameWithoutExtension(file),
-                        new Expression(File.ReadAllText(file))
+                        CurrentFunction.loadFromFile(file)
                     );
 
                     Debug.WriteLine("Loaded current function from " + file);

@@ -9,5 +9,9 @@ namespace Radio_Waves_Simulator.Models {
 
         public SizeF simulationRegion = new SizeF(500, 500);
 
+        public float dt = 0.2f;
+
+        public float dp = 0.1f;
+
     }
 }
