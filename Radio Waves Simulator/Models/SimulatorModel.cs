@@ -8,12 +8,15 @@ using System.Diagnostics;
 using Radio_Waves_Simulator.Rendering.RenderObjects;
 using Radio_Waves_Simulator.Rendering;
 using Expressive;
+using Radio_Waves_Simulator.Models;
 
 namespace Radio_Waves_Simulator.Simulator {
     /// <summary>
     /// Handles simulation state and settings
     /// </summary>
     internal class SimulatorModel {
+
+        public SimulationSettings simulationSettings = new SimulationSettings();
 
         private Dictionary<string, Lines> antennaShapes;
         /// <summary>
@@ -173,7 +176,9 @@ namespace Radio_Waves_Simulator.Simulator {
             dashedLinePattern.DashPattern = new float[] { 1, 3 };
 
             renderEngine.AddObject(
-                (new Rendering.RenderObjects.Rectangle(0, 0, 500, 500)).setStroke(dashedLinePattern)
+                (new Rendering.RenderObjects.Rectangle(0, 0, simulationSettings.simulationRegion.Width, simulationSettings.simulationRegion.Height))
+                .setName("simulation region")
+                .setStroke(dashedLinePattern)
             );
 
         }

@@ -39,5 +39,10 @@ namespace Radio_Waves_Simulator.Rendering {
             stroke = pen;
             return this;
         }
+
+        public RenderObject setName(string name) {
+            this.name = name;
+            return this;
+        }
     }
 }
