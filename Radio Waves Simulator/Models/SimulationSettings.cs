@@ -13,5 +13,6 @@ namespace Radio_Waves_Simulator.Models {
 
         public float dp = 0.1f;
 
+        public int pixelSize = 10;
     }
 }
