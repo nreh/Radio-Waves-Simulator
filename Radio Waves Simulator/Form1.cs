@@ -15,14 +15,13 @@ namespace Radio_Waves_Simulator {
             }
 
             AntennaShapesDropdown.SelectedItem = simulatorModel.SelectedAntenna;
-        }
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e) {
+            // Update dropdown showing current vs. time functions
+            foreach (string function in simulatorModel.CurrentFunctions.Keys) {
+                CurrentFunctionsDropDown.Items.Add(function);
+            }
 
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-
+            CurrentFunctionsDropDown.SelectedItem = simulatorModel.SelectedCurrentFunction;
         }
 
         private void AntennaShapesDropdown_SelectedIndexChanged(object sender, EventArgs e) {

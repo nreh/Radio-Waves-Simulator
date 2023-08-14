@@ -7,6 +7,7 @@ using System.IO;
 using System.Diagnostics;
 using Radio_Waves_Simulator.Rendering.RenderObjects;
 using Radio_Waves_Simulator.Rendering;
+using Expressive;
 
 namespace Radio_Waves_Simulator.Simulator {
     /// <summary>
@@ -43,8 +44,24 @@ namespace Radio_Waves_Simulator.Simulator {
                 renderEngine.renderObjects.Add(AntennaShapes[value]);
 
                 redraw();
+            }
+        }
 
-                Debug.WriteLine("Rerendered");
+        private Dictionary<string, Expression> currentFunctions;
+        public Dictionary<string, Expression> CurrentFunctions {
+            get {
+                return currentFunctions;
+            }
+            private set { }
+        }
+
+        private string selectedCurrentFunction = "";
+        public string SelectedCurrentFunction {
+            get {
+                return selectedCurrentFunction;
+            }
+            set {
+                selectedCurrentFunction = value;
             }
         }
 
@@ -84,6 +101,41 @@ namespace Radio_Waves_Simulator.Simulator {
                     Debug.WriteLine("Failed to load antenna shape from " + file);
                     Debug.WriteLine(e.ToString());
                 }
+            }
+
+            // read current functions in 'Current Functions' directory
+
+            files = Directory.GetFiles("Current Functions/");
+
+            currentFunctions = new Dictionary<string, Expression>();
+
+            foreach (var file in files) {
+                try {
+
+                    currentFunctions.Add(
+                        Path.GetFileNameWithoutExtension(file),
+                        new Expression(File.ReadAllText(file))
+                    );
+
+                    Debug.WriteLine("Loaded current function from " + file);
+                } catch (Exception e) {
+                    Debug.WriteLine("Failed to load current function from " + file);
+                    Debug.WriteLine(e.ToString());
+                }
+            }
+
+            // set default current vs. time function to 'Bell Curve'
+
+            if (currentFunctions.Count > 0) {
+                if (currentFunctions.Keys.Contains("Bell Curve")) {
+                    selectedCurrentFunction = "Bell Curve";
+                } else {
+                    // if not, set to first loaded function
+                    selectedCurrentFunction = currentFunctions.Keys.First();
+                }
+            } else {
+                Debug.WriteLine("No current functions loaded!");
+                throw new Exception("No current functions loaded!");
             }
 
             // set up renderEngine

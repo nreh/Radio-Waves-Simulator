@@ -30,7 +30,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AntennaShapesDropdown = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CurrentFunctionsDropDown = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -63,7 +63,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1161, 793);
             this.splitContainer1.SplitterDistance = 231;
             this.splitContainer1.TabIndex = 0;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
             // tabControl1
             // 
@@ -95,7 +94,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.AntennaShapesDropdown);
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel1.Controls.Add(this.CurrentFunctionsDropDown);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -119,7 +118,7 @@
             this.AntennaShapesDropdown.FormattingEnabled = true;
             this.AntennaShapesDropdown.Location = new System.Drawing.Point(3, 28);
             this.AntennaShapesDropdown.Name = "AntennaShapesDropdown";
-            this.AntennaShapesDropdown.Size = new System.Drawing.Size(202, 23);
+            this.AntennaShapesDropdown.Size = new System.Drawing.Size(206, 23);
             this.AntennaShapesDropdown.TabIndex = 1;
             this.AntennaShapesDropdown.SelectedIndexChanged += new System.EventHandler(this.AntennaShapesDropdown_SelectedIndexChanged);
             // 
@@ -129,21 +128,18 @@
             this.label2.Location = new System.Drawing.Point(3, 54);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label2.Size = new System.Drawing.Size(47, 25);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Current";
+            this.label2.Text = "Current vs. Time Function";
             // 
-            // comboBox2
+            // CurrentFunctionsDropDown
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Bell Curve",
-            "Sine Wave"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 82);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(202, 23);
-            this.comboBox2.TabIndex = 3;
+            this.CurrentFunctionsDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CurrentFunctionsDropDown.FormattingEnabled = true;
+            this.CurrentFunctionsDropDown.Location = new System.Drawing.Point(3, 82);
+            this.CurrentFunctionsDropDown.Name = "CurrentFunctionsDropDown";
+            this.CurrentFunctionsDropDown.Size = new System.Drawing.Size(206, 23);
+            this.CurrentFunctionsDropDown.TabIndex = 3;
             // 
             // tabPage2
             // 
@@ -173,7 +169,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Start Simulation";
+            this.button1.Text = "Simulate";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -218,7 +214,7 @@
         private Label label1;
         private ComboBox AntennaShapesDropdown;
         private Label label2;
-        private ComboBox comboBox2;
+        private ComboBox CurrentFunctionsDropDown;
         private TabPage tabPage2;
         private TabPage tabPage3;
     }

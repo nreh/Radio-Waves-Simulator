@@ -35,6 +35,9 @@
     <None Update="Antenna Shapes\Vertical Line.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Current Functions\Bell Curve.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
