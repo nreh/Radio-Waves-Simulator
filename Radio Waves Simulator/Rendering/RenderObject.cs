@@ -18,12 +18,12 @@ namespace Radio_Waves_Simulator.Rendering {
 
         public static PointF realPosition(RenderEngineState renderState, PointF position) {
             PointF centerOffset = renderState.getCenterOffset();
-            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, position.Y - renderState.cameraPosition.Y + centerOffset.Y);
+            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, (-position.Y) - renderState.cameraPosition.Y + centerOffset.Y);
         }
 
         public PointF realPosition(RenderEngineState renderState) {
             PointF centerOffset = renderState.getCenterOffset();
-            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, position.Y - renderState.cameraPosition.Y + centerOffset.Y);
+            return new PointF(position.X - renderState.cameraPosition.X + centerOffset.X, (-position.Y) - renderState.cameraPosition.Y + centerOffset.Y);
         }
 
         /// <summary>

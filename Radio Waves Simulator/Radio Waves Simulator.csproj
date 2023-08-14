@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Antenna Shapes\Dipole.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Antenna Shapes\Rectangle.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

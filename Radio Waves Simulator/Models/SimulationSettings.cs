@@ -9,11 +9,11 @@ namespace Radio_Waves_Simulator.Models {
 
         public Size simulationRegion = new Size(500, 500);
 
-        public float dt = 1f;
+        public float dt = 0.2f;
 
-        public float dp = 0.1f; // the lower this value is the smaller the wire is elements are sliced into
+        public float dp = 0.05f; // the lower this value is the smaller the wire is elements are sliced into
 
-        public int pixelSize = 1;
+        public int pixelSize = 3;
 
         public float C = 20;
     }

@@ -203,7 +203,7 @@ namespace Radio_Waves_Simulator.Simulator {
 
             simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
 
-            simulator.simulateFrames(20);
+            simulator.simulateFrames(80 );
 
             onSimulationComplete.Invoke(this, new EventArgs());
         }

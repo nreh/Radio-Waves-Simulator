@@ -76,13 +76,15 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
 
             for (int x = 0; x < cumulativeLengths.Length; x++) {
                 if (l <= cumulativeLengths[x]) {
-                    // p(t) lies on line segment points[x-1],points[x]
+                    // p(t) lies on line segment points[x],points[x+1]
                     float remainingLength = l;
                     if (x > 0) {
                         remainingLength -= cumulativeLengths[x-1];
                     }
 
                     PointF position = new PointF(directionalVectors[x].X * remainingLength, directionalVectors[x].Y * remainingLength);
+                    position.X -= points[x].X;
+                    position.Y -= points[x].Y;
                     PointF direction = directionalVectors[x];
 
                     return new FieldVector(position, direction);
