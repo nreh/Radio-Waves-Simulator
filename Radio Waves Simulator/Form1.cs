@@ -23,21 +23,6 @@ namespace Radio_Waves_Simulator {
 
             CurrentFunctionsDropDown.SelectedItem = simulatorModel.SelectedCurrentFunction;
 
-            // Once simulation is complete, enable trackbar
-            simulatorModel.onSimulationComplete += (object? sender, EventArgs e) => {
-                trackBar1.Enabled = true;
-                trackBar1.Maximum = simulatorModel.simulator.allFrames.Count-1;
-                trackBar1.Value = 0;
-
-                simulatorModel.drawFrame(0);
-
-                // re-enable UI
-                tabControl1.Enabled = true;
-                SimulateButton.Enabled = true;
-                SimulateButton.Text = "Simulate";
-
-            };
-
 
             // Load simulation settings into UI
             simRegionWidth.Value = simulatorModel.simulationSettings.simulationRegion.Width;
@@ -84,13 +69,46 @@ namespace Radio_Waves_Simulator {
             SimulateButton.Enabled = false;
             SimulateButton.Text = "Please wait...";
 
-            simulatorModel.startSimulation();
+            // start backgroundworker
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e) {
             simulatorModel.drawFrame(trackBar1.Value);
         }
 
-        
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e) {
+            simulatorModel.startSimulation((o, e) => {
+                // every time new frame is created update UI
+                int progress = (int)MathF.Ceiling(100 * simulatorModel.simulator.allFrames.Count / simulatorModel.simulationSettings.simulationFrames);
+                backgroundWorker1.ReportProgress(progress);
+            });
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e) {
+            // update window title
+            this.Text = "Radio Wave Simulator - " + (e.ProgressPercentage) + "%";
+
+            // show newest frame
+            trackBar1.Maximum = simulatorModel.simulator.allFrames.Count-1;
+            trackBar1.Value = trackBar1.Maximum;
+            simulatorModel.drawFrame(trackBar1.Value);
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e) {
+            // update window title
+            this.Text = "Radio Wave Simulator";
+
+            trackBar1.Enabled = true;
+            trackBar1.Maximum = simulatorModel.simulator.allFrames.Count - 1;
+            trackBar1.Value = 0;
+
+            simulatorModel.drawFrame(0);
+
+            // re-enable UI
+            tabControl1.Enabled = true;
+            SimulateButton.Enabled = true;
+            SimulateButton.Text = "Simulate";
+        }
     }
 }

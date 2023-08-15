@@ -34,15 +34,18 @@ namespace Radio_Waves_Simulator.Models {
         /// Simulate a number of frames
         /// </summary>
         /// <param name="frames"></param>
-        public void simulateFrames(int frames) {
+        /// <param name="onFrame">Invoked when a frame is calculated and rendered</param>
+        public void simulateFrames(int frames, EventHandler? onFrame = null) {
             for(int x=0; x<frames; x++) {
-                allFrames.Add(calculateFrame(t));                
-                t += simulationSettings.dt;
+                allFrames.Add(calculateFrame(t));
                 Debug.WriteLine("Calculated frame " + (x + 1).ToString() + "/" + frames.ToString());
-            }
-            for (int x = 0; x < frames; x++) {
-                allFrames[x].generateBitmap();
+
+                allFrames.Last().generateBitmap();
                 Debug.WriteLine("Generated bitmap for frame " + (x + 1).ToString() + "/" + frames.ToString());
+
+                onFrame?.Invoke(this, new onFrameEventArgs());
+
+                t += simulationSettings.dt;
             }
         }
 
@@ -128,6 +131,12 @@ namespace Radio_Waves_Simulator.Models {
 
             return new PointF(dJ * (1/R) * dl.X, dJ * (1 / R) * dl.Y);
 
+        }
+    }
+
+    public class onFrameEventArgs : EventArgs {
+        public onFrameEventArgs() {
+            
         }
     }
 }

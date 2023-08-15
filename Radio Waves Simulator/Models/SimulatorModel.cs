@@ -9,6 +9,7 @@ using Radio_Waves_Simulator.Rendering.RenderObjects;
 using Radio_Waves_Simulator.Rendering;
 using Expressive;
 using Radio_Waves_Simulator.Models;
+using System.ComponentModel;
 
 namespace Radio_Waves_Simulator.Simulator {
     /// <summary>
@@ -197,7 +198,12 @@ namespace Radio_Waves_Simulator.Simulator {
 
         public EventHandler? onSimulationComplete;
 
-        public void startSimulation() {
+        /// <summary>
+        /// Start calculating simulation frames
+        /// </summary>
+        /// <param name="onFrame">Invoked when a new frame is calculated</param>
+        /// <exception cref="Exception"></exception>
+        public void startSimulation(EventHandler? onFrame = null) {
             var w = renderEngine.renderObjects.getObjectByName("antenna");
             
             if (w == null) {
@@ -206,7 +212,7 @@ namespace Radio_Waves_Simulator.Simulator {
 
             simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
 
-            simulator.simulateFrames(simulationSettings.simulationFrames);
+            simulator.simulateFrames(simulationSettings.simulationFrames, onFrame);
 
             onSimulationComplete?.Invoke(this, new EventArgs());
         }
