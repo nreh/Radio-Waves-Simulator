@@ -91,7 +91,10 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
                 }
             }
 
-            throw new Exception("p(t) lies outside of lines");
+            // just return last point in line
+            return new FieldVector(directionalVectors.Last(), points.Last());
+
+            //throw new Exception("p(t) lies outside of lines");
         }
     }
 }

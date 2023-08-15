@@ -91,8 +91,8 @@ namespace Radio_Waves_Simulator.Models {
             }
 
             //! debugging only
-            value.X *= 100000;
-            value.Y *= 100000;
+            value.X *= 10000;
+            value.Y *= 10000;
 
             return value;
         }

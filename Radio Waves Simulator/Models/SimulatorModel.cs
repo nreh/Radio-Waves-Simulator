@@ -170,7 +170,10 @@ namespace Radio_Waves_Simulator.Simulator {
         /// <summary>
         /// Create default objects such as simulation region
         /// </summary>
-        private void createDefaultObjects() {
+        public void createDefaultObjects() {
+
+            // remove existing objects if necessary
+            renderEngine.renderObjects.removeRenderObjectByName("simulation region", quiet: true);
 
             // Add a dashed box indicating simulation region
 
@@ -192,7 +195,7 @@ namespace Radio_Waves_Simulator.Simulator {
             pictureBox.Refresh();
         }
 
-        public EventHandler onSimulationComplete;
+        public EventHandler? onSimulationComplete;
 
         public void startSimulation() {
             var w = renderEngine.renderObjects.getObjectByName("antenna");
@@ -203,9 +206,9 @@ namespace Radio_Waves_Simulator.Simulator {
 
             simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
 
-            simulator.simulateFrames(80 );
+            simulator.simulateFrames(simulationSettings.simulationFrames);
 
-            onSimulationComplete.Invoke(this, new EventArgs());
+            onSimulationComplete?.Invoke(this, new EventArgs());
         }
 
         public void drawFrame(int frameIndex) {
@@ -228,6 +231,6 @@ namespace Radio_Waves_Simulator.Simulator {
 
             Debug.WriteLine("Showing frame " + frameIndex.ToString());
         }
-        
+
     }
 }
