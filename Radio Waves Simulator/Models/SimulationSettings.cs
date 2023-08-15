@@ -21,5 +21,10 @@ namespace Radio_Waves_Simulator.Models {
         /// How many frames to simulate
         /// </summary>
         public int simulationFrames = 10;
+
+        /// <summary>
+        /// Multiplies contribution of each wire element by this value
+        /// </summary>
+        public float fieldMultiplier = 100;
     }
 }

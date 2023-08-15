@@ -30,6 +30,12 @@ namespace Radio_Waves_Simulator {
                 trackBar1.Value = 0;
 
                 simulatorModel.drawFrame(0);
+
+                // re-enable UI
+                tabControl1.Enabled = true;
+                SimulateButton.Enabled = true;
+                SimulateButton.Text = "Simulate";
+
             };
 
 
@@ -41,6 +47,7 @@ namespace Radio_Waves_Simulator {
             pixelSize.Value = simulatorModel.simulationSettings.pixelSize;
             lightSpeed.Value = Convert.ToDecimal(simulatorModel.simulationSettings.C);
             simulationFrames.Value = simulatorModel.simulationSettings.simulationFrames;
+            fieldMultiplier.Value = Convert.ToDecimal(simulatorModel.simulationSettings.fieldMultiplier);
 
             // Add event handlers
             simRegionWidth.ValueChanged += (s, e) => { 
@@ -58,6 +65,7 @@ namespace Radio_Waves_Simulator {
             pixelSize.ValueChanged += (s, e) => { simulatorModel.simulationSettings.pixelSize = (int)pixelSize.Value; };
             lightSpeed.ValueChanged += (s, e) => { simulatorModel.simulationSettings.C = (float)lightSpeed.Value; };
             simulationFrames.ValueChanged += (s, e) => { simulatorModel.simulationSettings.simulationFrames = (int)simulationFrames.Value; };
+            fieldMultiplier.ValueChanged += (s, e) => { simulatorModel.simulationSettings.fieldMultiplier = (int)fieldMultiplier.Value; };
         }
 
 
@@ -71,6 +79,11 @@ namespace Radio_Waves_Simulator {
         }
 
         private void SimulateButton_Click(object sender, EventArgs e) {
+            // disable UI while things are loading
+            tabControl1.Enabled = false;
+            SimulateButton.Enabled = false;
+            SimulateButton.Text = "Please wait...";
+
             simulatorModel.startSimulation();
         }
 

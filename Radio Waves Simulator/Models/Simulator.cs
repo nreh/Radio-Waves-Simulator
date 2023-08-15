@@ -90,9 +90,9 @@ namespace Radio_Waves_Simulator.Models {
                 value.Y += w.Y;
             }
 
-            //! debugging only
-            value.X *= 10000;
-            value.Y *= 10000;
+            // increase contribution for cases where field isn't visible enough or is too visible
+            value.X *= simulationSettings.fieldMultiplier;
+            value.Y *= simulationSettings.fieldMultiplier;
 
             return value;
         }

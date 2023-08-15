@@ -49,14 +49,17 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lightSpeed = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.simulationFrames = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.fieldMultiplier = new System.Windows.Forms.NumericUpDown();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.SimulateButton = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label13 = new System.Windows.Forms.Label();
-            this.simulationFrames = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,13 +75,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.wireElementSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pixelSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lightSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -191,6 +195,7 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.simRegionWidth);
@@ -209,6 +214,9 @@
             this.flowLayoutPanel2.Controls.Add(this.lightSpeed);
             this.flowLayoutPanel2.Controls.Add(this.label13);
             this.flowLayoutPanel2.Controls.Add(this.simulationFrames);
+            this.flowLayoutPanel2.Controls.Add(this.label14);
+            this.flowLayoutPanel2.Controls.Add(this.label15);
+            this.flowLayoutPanel2.Controls.Add(this.fieldMultiplier);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -328,6 +336,7 @@
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label8.Location = new System.Drawing.Point(3, 222);
+            this.label8.MaximumSize = new System.Drawing.Size(200, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.label8.Size = new System.Drawing.Size(196, 55);
@@ -432,6 +441,85 @@
             0,
             0});
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(3, 474);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.label13.Size = new System.Drawing.Size(109, 30);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Simulation Frames";
+            // 
+            // simulationFrames
+            // 
+            this.simulationFrames.Location = new System.Drawing.Point(3, 507);
+            this.simulationFrames.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.simulationFrames.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.simulationFrames.Name = "simulationFrames";
+            this.simulationFrames.Size = new System.Drawing.Size(120, 23);
+            this.simulationFrames.TabIndex = 18;
+            this.simulationFrames.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(3, 533);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.label14.Size = new System.Drawing.Size(90, 30);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Field Multiplier";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label15.Location = new System.Drawing.Point(3, 563);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label15.Size = new System.Drawing.Size(203, 55);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Increase this value if field isn\'t visible or is too dim, decrease it if it\'s too" +
+    " bright";
+            // 
+            // fieldMultiplier
+            // 
+            this.fieldMultiplier.DecimalPlaces = 4;
+            this.fieldMultiplier.Location = new System.Drawing.Point(3, 621);
+            this.fieldMultiplier.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.fieldMultiplier.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.fieldMultiplier.Name = "fieldMultiplier";
+            this.fieldMultiplier.Size = new System.Drawing.Size(120, 23);
+            this.fieldMultiplier.TabIndex = 20;
+            this.fieldMultiplier.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
@@ -511,39 +599,6 @@
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(3, 474);
-            this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.label13.Size = new System.Drawing.Size(109, 30);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Simulation Frames";
-            // 
-            // simulationFrames
-            // 
-            this.simulationFrames.Location = new System.Drawing.Point(3, 507);
-            this.simulationFrames.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.simulationFrames.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.simulationFrames.Name = "simulationFrames";
-            this.simulationFrames.Size = new System.Drawing.Size(120, 23);
-            this.simulationFrames.TabIndex = 18;
-            this.simulationFrames.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -569,6 +624,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.wireElementSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pixelSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lightSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
@@ -576,7 +633,6 @@
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -617,5 +673,8 @@
         private NumericUpDown lightSpeed;
         private Label label13;
         private NumericUpDown simulationFrames;
+        private Label label14;
+        private NumericUpDown fieldMultiplier;
+        private Label label15;
     }
 }
