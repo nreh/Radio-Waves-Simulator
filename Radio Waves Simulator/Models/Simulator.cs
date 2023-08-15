@@ -12,7 +12,7 @@ namespace Radio_Waves_Simulator.Models {
     /// <summary>
     /// Class that does the actual calculation of the radio wave propagation
     /// </summary>
-    internal class Simulator {
+    internal class Simulator : IDisposable {
         SimulationSettings simulationSettings;
         Lines wire;
         CurrentFunction currentFunction;
@@ -23,6 +23,7 @@ namespace Radio_Waves_Simulator.Models {
         float t = 0;
 
         public List<Frame> allFrames = new List<Frame>();
+        private bool disposedValue;
 
         public Simulator(SimulationSettings simulationSettings, Lines wire, CurrentFunction currentFunction) {
             this.simulationSettings = simulationSettings;
@@ -131,6 +132,36 @@ namespace Radio_Waves_Simulator.Models {
 
             return new PointF(dJ * (1/R) * dl.X, dJ * (1 / R) * dl.Y);
 
+        }
+
+        // This dispose structure was created by Visual Studio auto complete so I'm not going to touch it too much
+
+        protected virtual void Dispose(bool disposing) {
+            if (!disposedValue) {
+                if (disposing) {
+                    // TODO: dispose managed state (managed objects)
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                foreach (Frame f in allFrames) {
+                    f.Bitmap.Dispose();
+                }
+
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        ~Simulator() {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: false);
+        }
+
+        public void Dispose() {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 

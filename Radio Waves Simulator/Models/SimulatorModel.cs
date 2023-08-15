@@ -210,6 +210,11 @@ namespace Radio_Waves_Simulator.Simulator {
                 throw new Exception("Antenna doesn't exist in render engine!");
             }
 
+            if (simulator != null) {
+                simulator.Dispose();
+                simulator = null;
+            }
+
             simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
 
             simulator.simulateFrames(simulationSettings.simulationFrames, onFrame);
