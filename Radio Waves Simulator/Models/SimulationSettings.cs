@@ -25,6 +25,6 @@ namespace Radio_Waves_Simulator.Models {
         /// <summary>
         /// Multiplies contribution of each wire element by this value
         /// </summary>
-        public float fieldMultiplier = 100;
+        public float fieldMultiplier = 10000;
     }
 }
