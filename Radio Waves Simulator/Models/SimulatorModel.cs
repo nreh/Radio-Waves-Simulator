@@ -133,8 +133,8 @@ namespace Radio_Waves_Simulator.Simulator {
             // set default current vs. time function to 'Bell Curve'
 
             if (currentFunctions.Count > 0) {
-                if (currentFunctions.Keys.Contains("Bell Curve")) {
-                    selectedCurrentFunction = "Bell Curve";
+                if (currentFunctions.Keys.Contains("Sine Wave")) {
+                    selectedCurrentFunction = "Sine Wave";
                 } else {
                     // if not, set to first loaded function
                     selectedCurrentFunction = currentFunctions.Keys.First();
