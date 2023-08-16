@@ -2,6 +2,11 @@
 
 This program aims to simulate the propagation of radio waves from a thin 2-D wire of arbitrary shape. This project is not meant for exact or even useful solutions, and is rather more of an educational experiment.
 
+### Download .exe
+https://github.com/nreh/Radio-Waves-Simulator/releases/download/v1.0/Radio.Waves.Simulator.zip
+
+&nbsp;
+
 ![Dipole Antenna Radiation](Images/animation.gif)
 
 The bright spots in the simulation are the magnitude of the electric field at that point.
@@ -14,7 +19,7 @@ The bright spots in the simulation are the magnitude of the electric field at th
 
 The program comes with 3 default wire shapes:
 
- - Straight line
+ - Vertical line
 
  - Rectangle
 
