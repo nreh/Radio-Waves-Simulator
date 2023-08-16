@@ -41,7 +41,7 @@
     <None Update="Current Functions\Bell Curve.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Current Functions\SineWave.txt">
+    <None Update="Current Functions\Sine Wave.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

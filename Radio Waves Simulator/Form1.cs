@@ -69,6 +69,9 @@ namespace Radio_Waves_Simulator {
             SimulateButton.Enabled = false;
             SimulateButton.Text = "Please wait...";
 
+            timer1.Stop();
+            trackbarButton.BackgroundImage = Properties.Resources.StopIcon;
+
             // start backgroundworker
             backgroundWorker1.RunWorkerAsync();
         }
@@ -105,10 +108,42 @@ namespace Radio_Waves_Simulator {
 
             simulatorModel.drawFrame(0);
 
+            trackbarButton.BackgroundImage = Properties.Resources.PlayIcon;
+
             // re-enable UI
             tabControl1.Enabled = true;
             SimulateButton.Enabled = true;
             SimulateButton.Text = "Simulate";
+        }
+
+        private void trackbarButton_Click(object sender, EventArgs e) {
+            if (simulatorModel.simulator != null) {
+                if (simulatorModel.simulator.IsSimulating) {
+                    // request simulation stop
+                    simulatorModel.simulator.cancelFlag = true;
+                    return;
+                }
+            }
+
+            // play/pause states
+            if (timer1.Enabled) {
+                timer1.Stop();
+                trackbarButton.BackgroundImage = Properties.Resources.PlayIcon;
+            } else {
+                timer1.Start();
+                trackbarButton.BackgroundImage = Properties.Resources.PauseIcon;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            // move trackbar forward
+            if (trackBar1.Value == trackBar1.Maximum) {
+                trackBar1.Value = 0;
+            } else {
+                trackBar1.Value++;
+            }
+
+            simulatorModel.drawFrame(trackBar1.Value);
         }
     }
 }

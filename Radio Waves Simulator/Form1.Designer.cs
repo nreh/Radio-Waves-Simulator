@@ -23,6 +23,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -58,9 +59,10 @@
             this.SimulateButton = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.trackbarButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -560,7 +562,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.button2);
+            this.splitContainer2.Panel2.Controls.Add(this.trackbarButton);
             this.splitContainer2.Panel2.Controls.Add(this.trackBar1);
             this.splitContainer2.Size = new System.Drawing.Size(926, 793);
             this.splitContainer2.SplitterDistance = 742;
@@ -576,16 +578,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
+            // trackbarButton
             // 
-            this.button2.BackgroundImage = global::Radio_Waves_Simulator.Properties.Resources.PlayIcon;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(9, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(37, 37);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.trackbarButton.BackgroundImage = global::Radio_Waves_Simulator.Properties.Resources.PlayIcon;
+            this.trackbarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.trackbarButton.Location = new System.Drawing.Point(9, 5);
+            this.trackbarButton.Name = "trackbarButton";
+            this.trackbarButton.Size = new System.Drawing.Size(37, 37);
+            this.trackbarButton.TabIndex = 1;
+            this.trackbarButton.UseVisualStyleBackColor = true;
+            this.trackbarButton.Click += new System.EventHandler(this.trackbarButton_Click);
             // 
             // trackBar1
             // 
@@ -608,6 +610,10 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -663,7 +669,7 @@
         private SplitContainer splitContainer2;
         private PictureBox pictureBox1;
         private TrackBar trackBar1;
-        private Button button2;
+        private Button trackbarButton;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label3;
         private NumericUpDown simRegionWidth;
@@ -687,5 +693,6 @@
         private NumericUpDown fieldMultiplier;
         private Label label15;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

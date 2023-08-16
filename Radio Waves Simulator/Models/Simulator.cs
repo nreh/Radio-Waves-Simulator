@@ -18,6 +18,19 @@ namespace Radio_Waves_Simulator.Models {
         CurrentFunction currentFunction;
 
         /// <summary>
+        /// If true, simulateFrames will cancel current work
+        /// </summary>
+        public bool cancelFlag = false;
+
+        private bool isSimulating = false;
+        public bool IsSimulating {
+            get {
+                return isSimulating;
+            }
+            private set { }
+        }
+
+        /// <summary>
         /// Current time
         /// </summary>
         float t = 0;
@@ -37,7 +50,13 @@ namespace Radio_Waves_Simulator.Models {
         /// <param name="frames"></param>
         /// <param name="onFrame">Invoked when a frame is calculated and rendered</param>
         public void simulateFrames(int frames, EventHandler? onFrame = null) {
+            // reset flags
+            cancelFlag = false;
+            isSimulating = true;
+
             for(int x=0; x<frames; x++) {
+                if (cancelFlag) break;
+
                 allFrames.Add(calculateFrame(t));
                 Debug.WriteLine("Calculated frame " + (x + 1).ToString() + "/" + frames.ToString());
 
@@ -48,6 +67,8 @@ namespace Radio_Waves_Simulator.Models {
 
                 t += simulationSettings.dt;
             }
+
+            isSimulating = false;
         }
 
         /// <summary>
