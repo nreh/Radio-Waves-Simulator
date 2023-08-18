@@ -15,6 +15,12 @@ The bright spots in the simulation are the magnitude of the electric field at th
 
 ![Dipole](Images/image2.png)
 
+## Quick Start
+
+The default settings are enough to provide a simple simulation of propagation off a straight wire. Hit 'Simulate' and wait for the results to be rendered.
+
+If the simulation is taking too long to calculate, you can stop it and set a lower frame count in the **Simulation** tab.
+
 ## Wire Shapes
 
 The program comes with 3 default wire shapes:
