@@ -31,6 +31,8 @@ The program comes with 3 default wire shapes:
 
  - Dipole
 
+ - Half Circle
+
 You can create your own by creating a text file in the `/Antenna Shapes` folder. Each line should contain a pair of coordinates indicating a point on the antenna shape.
 
 ## Current Functions
