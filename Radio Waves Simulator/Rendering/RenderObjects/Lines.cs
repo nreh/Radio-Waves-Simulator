@@ -84,6 +84,7 @@ namespace Radio_Waves_Simulator.Rendering.RenderObjects {
 
                     PointF position = new PointF(directionalVectors[x].X * remainingLength, directionalVectors[x].Y * remainingLength);
                     position.X -= points[x].X;
+                    position.X *= -1; // this fixes the horizontal flip issue in simulation coordinates
                     position.Y -= points[x].Y;
                     PointF direction = directionalVectors[x];
 
