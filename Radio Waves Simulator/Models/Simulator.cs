@@ -49,7 +49,7 @@ namespace Radio_Waves_Simulator.Models {
         /// </summary>
         /// <param name="frames"></param>
         /// <param name="onFrame">Invoked when a frame is calculated and rendered</param>
-        public void simulateFrames(int frames, EventHandler? onFrame = null) {
+        public void simulateFrames(int frames, EventHandler? onFrame = null, Frame.Mode renderMode = Frame.Mode.SCALAR) {
             // reset flags
             cancelFlag = false;
             isSimulating = true;
@@ -57,7 +57,7 @@ namespace Radio_Waves_Simulator.Models {
             for(int x=0; x<frames; x++) {
                 if (cancelFlag) break;
 
-                allFrames.Add(calculateFrame(t));
+                allFrames.Add(calculateFrame(t, renderMode));
                 Debug.WriteLine("Calculated frame " + (x + 1).ToString() + "/" + frames.ToString());
 
                 allFrames.Last().generateBitmap();
@@ -76,11 +76,12 @@ namespace Radio_Waves_Simulator.Models {
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public Frame calculateFrame(float t) {
+        public Frame calculateFrame(float t, Frame.Mode renderMode) {
             int regionWidth = simulationSettings.simulationRegion.Width;
             int regionHeight = simulationSettings.simulationRegion.Height;
 
-            Frame f = new Frame(regionWidth / simulationSettings.pixelSize +1, regionHeight / simulationSettings.pixelSize +1);
+            Frame f = new Frame(regionWidth +1, regionHeight +1, simulationSettings);
+            f.RenderMode = renderMode;
 
             float rw2 = regionWidth / 2;
             float rh2 = regionHeight / 2;

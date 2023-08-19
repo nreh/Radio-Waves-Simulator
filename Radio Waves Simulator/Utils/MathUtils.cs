@@ -31,5 +31,17 @@ namespace Radio_Waves_Simulator.Utils {
 
             return value;
         }
+
+        /// <summary>
+        /// Scales a value so that it aproaches 1 when higher. In a sense, it's roughly similar to ClampMax but as
+        /// the value aproaches its max, it smooths out rather than sharply stopping at a max value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="max">Around the maximum value this function should expect as input</param>
+        /// <returns></returns>
+        public static float SmoothClamp(float value, float max) {
+            float k = value * max;
+            return k / (MathF.Pow(value, 1.7f) + k);
+        }
     }
 }

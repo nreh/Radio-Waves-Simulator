@@ -43,6 +43,9 @@
     <None Update="Antenna Shapes\Rectangle.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Antenna Shapes\Horizontal Line.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Antenna Shapes\Vertical Line.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

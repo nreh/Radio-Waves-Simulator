@@ -34,6 +34,23 @@ namespace Radio_Waves_Simulator {
             simulationFrames.Value = simulatorModel.simulationSettings.simulationFrames;
             fieldMultiplier.Value = Convert.ToDecimal(simulatorModel.simulationSettings.fieldMultiplier);
 
+            // render mode
+            int rmode;
+            switch (simulatorModel.RenderMode) {
+                case Models.Frame.Mode.SCALAR:
+                    rmode = 0;
+                    break;
+
+                case Models.Frame.Mode.VECTOR_FIELD:
+                    rmode = 1;
+                    break;
+
+                default:
+                    throw new Exception("Unexpected default render mode '" + simulatorModel.RenderMode.ToString() + "'");
+            }
+
+            RenderModeDropdown.SelectedIndex = rmode;
+
             // Add event handlers
             simRegionWidth.ValueChanged += (s, e) => { 
                 simulatorModel.simulationSettings.simulationRegion.Width = (int)simRegionWidth.Value;
@@ -45,12 +62,24 @@ namespace Radio_Waves_Simulator {
                 simulatorModel.createDefaultObjects();
                 simulatorModel.redraw();
             };
-            timeStep.ValueChanged += (s, e) => { simulatorModel.simulationSettings.dt = (float)simRegionHeight.Value; };
+            timeStep.ValueChanged += (s, e) => { simulatorModel.simulationSettings.dt = (float)timeStep.Value; };
             wireElementSize.ValueChanged += (s, e) => { simulatorModel.simulationSettings.dp = (float)wireElementSize.Value; };
             pixelSize.ValueChanged += (s, e) => { simulatorModel.simulationSettings.pixelSize = (int)pixelSize.Value; };
             lightSpeed.ValueChanged += (s, e) => { simulatorModel.simulationSettings.C = (float)lightSpeed.Value; };
             simulationFrames.ValueChanged += (s, e) => { simulatorModel.simulationSettings.simulationFrames = (int)simulationFrames.Value; };
             fieldMultiplier.ValueChanged += (s, e) => { simulatorModel.simulationSettings.fieldMultiplier = (int)fieldMultiplier.Value; };
+
+            // render mode
+            RenderModeDropdown.SelectedIndexChanged += (s, e) => {
+                int index = RenderModeDropdown.SelectedIndex;
+                if (index == 0) {
+                    simulatorModel.RenderMode = Models.Frame.Mode.SCALAR;
+                } else if (index == 1) {
+                    simulatorModel.RenderMode = Models.Frame.Mode.VECTOR_FIELD;
+                }
+
+                trackBar1.Value = 0;
+            };
         }
 
 

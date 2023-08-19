@@ -71,6 +71,17 @@ namespace Radio_Waves_Simulator.Simulator {
             }
         }
 
+        private Frame.Mode renderMode;
+        public Frame.Mode RenderMode {
+            get {
+                return renderMode;
+            }
+            set {
+                renderMode = value;
+                updateSimulatorRenderMode();
+            }
+        }
+
         RenderEngine renderEngine;
         RenderSettings renderSettings = new RenderSettings();
 
@@ -217,7 +228,7 @@ namespace Radio_Waves_Simulator.Simulator {
 
             simulator = new Models.Simulator(simulationSettings, (Lines)w, CurrentFunctions[selectedCurrentFunction]);
 
-            simulator.simulateFrames(simulationSettings.simulationFrames, onFrame);
+            simulator.simulateFrames(simulationSettings.simulationFrames, onFrame, renderMode);
 
             onSimulationComplete?.Invoke(this, new EventArgs());
         }
@@ -241,6 +252,18 @@ namespace Radio_Waves_Simulator.Simulator {
             redraw();
 
             Debug.WriteLine("Showing frame " + frameIndex.ToString());
+        }
+
+        /// <summary>
+        /// Updated RenderMode on each frame in current simulation
+        /// </summary>
+        public void updateSimulatorRenderMode() {
+            if (simulator != null) {
+                foreach (Frame frame in simulator.allFrames) {
+                    frame.RenderMode = renderMode;
+                }
+                drawFrame(0);
+            }
         }
 
     }

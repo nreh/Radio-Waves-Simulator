@@ -52,10 +52,10 @@
             this.lightSpeed = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.simulationFrames = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.fieldMultiplier = new System.Windows.Forms.NumericUpDown();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.RenderModeDropdown = new System.Windows.Forms.ComboBox();
             this.SimulateButton = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,6 +63,9 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.fieldMultiplier = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,13 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pixelSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lightSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -477,61 +482,49 @@
             0,
             0});
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(3, 533);
-            this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.label14.Size = new System.Drawing.Size(90, 30);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Field Multiplier";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(3, 563);
-            this.label15.MaximumSize = new System.Drawing.Size(200, 0);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.label15.Size = new System.Drawing.Size(200, 55);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Increase this value if field isn\'t visible or is too dim, decrease it if it\'s too" +
-    " bright";
-            // 
-            // fieldMultiplier
-            // 
-            this.fieldMultiplier.DecimalPlaces = 4;
-            this.fieldMultiplier.Location = new System.Drawing.Point(3, 621);
-            this.fieldMultiplier.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.fieldMultiplier.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.fieldMultiplier.Name = "fieldMultiplier";
-            this.fieldMultiplier.Size = new System.Drawing.Size(120, 23);
-            this.fieldMultiplier.TabIndex = 20;
-            this.fieldMultiplier.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.flowLayoutPanel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(218, 721);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rendering";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label16);
+            this.flowLayoutPanel3.Controls.Add(this.RenderModeDropdown);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(218, 721);
+            this.flowLayoutPanel3.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(3, 10);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 15);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Render Mode";
+            // 
+            // RenderModeDropdown
+            // 
+            this.RenderModeDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RenderModeDropdown.FormattingEnabled = true;
+            this.RenderModeDropdown.Items.AddRange(new object[] {
+            "Scalar Field",
+            "Vector Field"});
+            this.RenderModeDropdown.Location = new System.Drawing.Point(3, 28);
+            this.RenderModeDropdown.Name = "RenderModeDropdown";
+            this.RenderModeDropdown.Size = new System.Drawing.Size(212, 23);
+            this.RenderModeDropdown.TabIndex = 1;
             // 
             // SimulateButton
             // 
@@ -615,6 +608,48 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(3, 533);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.label14.Size = new System.Drawing.Size(90, 30);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Field Multiplier";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label15.Location = new System.Drawing.Point(3, 563);
+            this.label15.MaximumSize = new System.Drawing.Size(200, 0);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label15.Size = new System.Drawing.Size(200, 55);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Increase this value if field isn\'t visible or is too dim, decrease it if it\'s too" +
+    " bright";
+            // 
+            // fieldMultiplier
+            // 
+            this.fieldMultiplier.DecimalPlaces = 4;
+            this.fieldMultiplier.Location = new System.Drawing.Point(3, 621);
+            this.fieldMultiplier.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.fieldMultiplier.Name = "fieldMultiplier";
+            this.fieldMultiplier.Size = new System.Drawing.Size(120, 23);
+            this.fieldMultiplier.TabIndex = 26;
+            this.fieldMultiplier.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -641,7 +676,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pixelSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lightSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationFrames)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
@@ -649,6 +686,7 @@
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldMultiplier)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -689,10 +727,13 @@
         private NumericUpDown lightSpeed;
         private Label label13;
         private NumericUpDown simulationFrames;
-        private Label label14;
-        private NumericUpDown fieldMultiplier;
-        private Label label15;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Timer timer1;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Label label16;
+        private ComboBox RenderModeDropdown;
+        private Label label14;
+        private Label label15;
+        private NumericUpDown fieldMultiplier;
     }
 }
